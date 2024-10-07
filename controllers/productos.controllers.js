@@ -14,7 +14,7 @@ const getAll = async (req,res) => {
 
 }
 
-//! Gey One
+//! Get One
 const getOne = async (req,res) => {
     const id = req.params.id
     try {
@@ -33,9 +33,7 @@ const create = async (req,res) => {
     try {
         
         const productoCreado = await modelos.crearProducto(producto )
-        res.status(201).json( {
-            producto: productoCreado
-        })
+        res.status(201).json(handleMongoId(productoCreado))
     } catch (error) {
         console.log('[create]', error);
         
@@ -48,7 +46,7 @@ const update = async (req,res) => {
     const productoPorEditado = req.body
     try {
         const produtoActualizado = await modelos.updateProducto(id, productoPorEditado)
-        res.json(produtoActualizado)
+        res.json(handleMongoId(produtoActualizado))
 
     } catch (error) {
         console.log('[update]', error)
@@ -58,10 +56,11 @@ const update = async (req,res) => {
 //! Delete
 const remove = async (req,res) => {
     const id = req.params.id
+    console.log(id)  
     
     try {
         const productoBorrado = await modelos.deleteProducto(id)
-        res.json({producto: productoBorrado})
+        res.json(handleMongoId({producto: productoBorrado}))
     } catch (error) {
         console.log('[remove]', error);
     }
