@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import ProductosEsquema from "./esquemas/ProductosEsquema"
+import ProductosEsquema from "./esquemas/ProductosEsquema.js"
 
 
 //! Modelo
