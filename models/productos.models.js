@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
-import ProductosEsquema from "./esquemas/ProductosEsquema.js"
+import ProductosEsquema from "./esquemas/ProductosEsquema"
+
 
 //! Modelo
 const ProductosModelo = mongoose.model('productos', ProductosEsquema)
